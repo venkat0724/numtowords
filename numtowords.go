@@ -6,7 +6,6 @@ package numtowords
 
 import (
 	"fmt"
-	"math"
 )
 
 // package level variables are allocated memory once the package is imported
@@ -94,8 +93,7 @@ func Convert(number int) (string, error) {
 	}
 
 	if number < 0 {
-		number = int(math.Abs(float64(number)))
-		result, err := commonFunction(number)
+		result, err := commonFunction(-number)
 		if err != nil {
 			return "", err
 		}
