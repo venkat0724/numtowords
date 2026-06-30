@@ -4,7 +4,10 @@
 // No additional formatting options are provided
 package numtowords
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 // package level variables are allocated memory once the package is imported
 // packages are loaded in natural order..
@@ -91,7 +94,8 @@ func Convert(number int) (string, error) {
 	}
 
 	if number < 0 {
-		result, err := commonFunction(-number)
+		number = int(math.Abs(float64(number)))
+		result, err := commonFunction(number)
 		if err != nil {
 			return "", err
 		}
